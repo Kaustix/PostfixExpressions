@@ -1,0 +1,15 @@
+cpsc 2720 - Assignment 3 
+Test List
+------------------------
+
+A) FOR Tokenizer:
+  	//Parsing
+		ShouldParseString
+		ShouldInitializeParserToInitialToken
+	//crtTokenType
+		ShouldReturnLiteralToken
+		ShouldReturnOperatorToken
+		ShouldReturnUnknownToken
+		ShouldReturnTheEndToken
+
+B) FOR PostfixExpr:
