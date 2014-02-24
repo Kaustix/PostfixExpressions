@@ -25,7 +25,7 @@ private:
 	const std::string multipleLiterals = "42 18.7";
 	const std::string singleOperator = "+";
 	const std::string multipleOperators = "+ - * /";
-	const std::string unknownChar = "*";
+	const std::string unknownChar = "^";
 	const std::string spaces = "  10   +   2  ";
 
 public:

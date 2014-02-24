@@ -3,18 +3,15 @@
 
 #include <cppunit/extensions/HelperMacros.h>
 #include "StringExtension.h"
-#include <iostream>
 
 class StringExtensionTestFixture : public CppUnit::TestFixture 
 {
 public:
 	CPPUNIT_TEST_SUITE(StringExtensionTestFixture);
-	//isDouble
 	CPPUNIT_TEST(TestIntIsDouble);
 	CPPUNIT_TEST(TestDoubleIsDouble);
 	CPPUNIT_TEST(TestMultiplePointsAreNotDouble);
 	CPPUNIT_TEST(TestStringIsNotDouble);
-	//isOperator
 	CPPUNIT_TEST(TestOperatorIsOperator);
 	CPPUNIT_TEST(TestOtherStringsIsNotOperator);
 	CPPUNIT_TEST_SUITE_END();
