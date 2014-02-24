@@ -29,4 +29,5 @@ Tokenizer::TokenValue Tokenizer::crtTokenValue() {
 }
 
 void Tokenizer::nextToken() {
+	++crtIndex;
 }
