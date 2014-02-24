@@ -6,7 +6,7 @@ void Tokenizer::parse(const std::string str) {
 }
 
 Tokenizer::Tokens Tokenizer::crtTokenType() {
-	return Tokens::UNKNOWN;
+	return Tokens::THEEND;
 }
 
 Tokenizer::TokenValue Tokenizer::crtTokenValue() {

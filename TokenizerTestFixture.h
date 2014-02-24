@@ -8,8 +8,14 @@ class TokenizerTestFixture : public CppUnit::TestFixture
 {
 public:
 	CPPUNIT_TEST_SUITE(TokenizerTestFixture);
+	//Parsing
 	CPPUNIT_TEST(ShouldParseString);
 	CPPUNIT_TEST(ShouldInitializeParserToInitialToken);
+	//crtTokenType
+	CPPUNIT_TEST(ShouldReturnLiteralToken);
+	CPPUNIT_TEST(ShouldReturnOperatorToken);
+	CPPUNIT_TEST(ShouldReturnUnknownToken);
+		// IMplement Later CPPUNIT_TEST(ShouldReturnTheEndToken);
 	CPPUNIT_TEST_SUITE_END();
 
 private:
@@ -17,7 +23,9 @@ private:
 	const std::string intLiteral = "1";
 	const std::string doubleLiteral = "12.3";
 	const std::string multipleLiterals = "42 18.7";
-	const std::string operators = "+ - * /";
+	const std::string singleOperator = "+";
+	const std::string multipleOperators = "+ - * /";
+	const std::string unknownChar = "*";
 	const std::string spaces = "  10   +   2  ";
 
 public:
@@ -37,6 +45,25 @@ public:
 	void ShouldInitializeParserToInitialToken() {
 		t->parse(intLiteral);
 		CPPUNIT_ASSERT(t->crtIndex == 0);
+	}
+
+	void ShouldReturnLiteralToken() {
+		t->parse(intLiteral);
+		CPPUNIT_ASSERT(t->crtTokenType() == Tokenizer::Tokens::LITERAL);
+	}
+
+	void ShouldReturnOperatorToken() {
+		t->parse(singleOperator);
+		CPPUNIT_ASSERT(t->crtTokenType() == Tokenizer::Tokens::OPERATOR);
+	}
+
+	void ShouldReturnUnknownToken() {
+		t->parse(unknownChar);
+		CPPUNIT_ASSERT(t->crtTokenType() == Tokenizer::Tokens::UNKNOWN);
+	}
+
+	void ShouldReturnTheEndToken() {
+	 	//TODO :: After implmenting nextToken
 	}
 };
 
