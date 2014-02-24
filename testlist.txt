@@ -11,6 +11,8 @@ A) FOR Tokenizer:
 		ShouldReturnOperatorToken
 		ShouldReturnUnknownToken
 		ShouldReturnTheEndToken
+	//nextToken
+		ShouldIncrementNextToken
 
 B) FOR PostfixExpr:
 

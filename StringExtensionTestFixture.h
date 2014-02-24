@@ -1,6 +1,7 @@
 #ifndef __STRINGEXTENSIONTESTFIXTURE_H
 #define __STRINGEXTENSIONTESTFIXTURE_H
 
+#include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 #include "StringExtension.h"
 

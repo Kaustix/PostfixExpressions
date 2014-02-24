@@ -1,6 +1,7 @@
 #ifndef __TOKENIZERTESTFIXTURE_H
 #define __TOKENIZERTESTFIXTURE_H
 
+#include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 #include "Tokenizer.h"
 
@@ -9,13 +10,15 @@ class TokenizerTestFixture : public CppUnit::TestFixture
 public:
 	CPPUNIT_TEST_SUITE(TokenizerTestFixture);
 	//Parsing
-	CPPUNIT_TEST(ShouldParseString);
-	CPPUNIT_TEST(ShouldInitializeParserToInitialToken);
+		CPPUNIT_TEST(ShouldParseString);
+		CPPUNIT_TEST(ShouldInitializeParserToInitialToken);
 	//crtTokenType
-	CPPUNIT_TEST(ShouldReturnLiteralToken);
-	CPPUNIT_TEST(ShouldReturnOperatorToken);
-	CPPUNIT_TEST(ShouldReturnUnknownToken);
-	//CPPUNIT_TEST(ShouldReturnTheEndToken);
+		CPPUNIT_TEST(ShouldReturnLiteralToken);
+		CPPUNIT_TEST(ShouldReturnOperatorToken);
+		CPPUNIT_TEST(ShouldReturnUnknownToken);
+		CPPUNIT_TEST(ShouldReturnTheEndToken);
+	//nextToken
+		CPPUNIT_TEST(ShouldIncrementNextToken);
 	CPPUNIT_TEST_SUITE_END();
 
 private:
@@ -63,10 +66,15 @@ public:
 	}
 
 	void ShouldReturnTheEndToken() {
-		//TODO::Change to use nextToken() Instead later
 	 	t->parse(intLiteral);
 	 	t->crtIndex++;
 	 	CPPUNIT_ASSERT(t->crtTokenType() == Tokenizer::Tokens::THEEND);
+	}
+
+	void ShouldIncrementNextToken() {
+		t->parse(intLiteral);
+		t->nextToken();
+		CPPUNIT_ASSERT(t->crtIndex == 1);
 	}
 };
 
