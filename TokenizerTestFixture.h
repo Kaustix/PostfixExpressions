@@ -8,6 +8,8 @@ class TokenizerTestFixture : public CppUnit::TestFixture
 {
 public:
 	CPPUNIT_TEST_SUITE(TokenizerTestFixture);
+	CPPUNIT_TEST(ShouldParseString);
+	CPPUNIT_TEST(ShouldInitializeParserToInitialToken);
 	CPPUNIT_TEST_SUITE_END();
 
 private:
@@ -25,6 +27,16 @@ public:
 
 	void tearDown(){
 		delete t;
+	}
+
+	void ShouldParseString() {
+		t->parse(intLiteral);
+		CPPUNIT_ASSERT(t->strList[0] == "1");
+	}
+
+	void ShouldInitializeParserToInitialToken() {
+		t->parse(intLiteral);
+		CPPUNIT_ASSERT(t->crtIndex == 0);
 	}
 };
 
