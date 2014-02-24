@@ -1,4 +1,7 @@
 #include "Tokenizer.h"
+#include "StringExtension.h"
+
+#include <iostream>
 
 void Tokenizer::parse(const std::string str) {
 	crtIndex = 0;
@@ -6,7 +9,19 @@ void Tokenizer::parse(const std::string str) {
 }
 
 Tokenizer::Tokens Tokenizer::crtTokenType() {
-	return Tokens::THEEND;
+	if (crtIndex >= strList.size()) {
+		return Tokens::THEEND;
+	}
+
+	if (StringExtension::isDouble(strList[crtIndex])) {
+		return Tokens::LITERAL;
+	}
+
+	if (StringExtension::isOperator(strList[crtIndex])) {
+		return Tokens::OPERATOR;
+	}
+
+	return Tokens::UNKNOWN;
 }
 
 Tokenizer::TokenValue Tokenizer::crtTokenValue() {

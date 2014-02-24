@@ -15,7 +15,7 @@ public:
 	CPPUNIT_TEST(ShouldReturnLiteralToken);
 	CPPUNIT_TEST(ShouldReturnOperatorToken);
 	CPPUNIT_TEST(ShouldReturnUnknownToken);
-		// IMplement Later CPPUNIT_TEST(ShouldReturnTheEndToken);
+	//CPPUNIT_TEST(ShouldReturnTheEndToken);
 	CPPUNIT_TEST_SUITE_END();
 
 private:
@@ -63,7 +63,10 @@ public:
 	}
 
 	void ShouldReturnTheEndToken() {
-	 	//TODO :: After implmenting nextToken
+		//TODO::Change to use nextToken() Instead later
+	 	t->parse(intLiteral);
+	 	t->crtIndex++;
+	 	CPPUNIT_ASSERT(t->crtTokenType() == Tokenizer::Tokens::THEEND);
 	}
 };
 
