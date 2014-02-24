@@ -10,7 +10,8 @@ public:
 		char* end;
 		strtod(input, &end);
 		if (*input == '\0') return false;
-		return (end == input || *end != '\0');
+		if (end == input || *end != '\0') return false;
+		return true;
   		//printf("fail - the following characters are not part of a double\n%s\n", end);
 	}
 

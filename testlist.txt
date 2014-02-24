@@ -13,3 +13,12 @@ A) FOR Tokenizer:
 		ShouldReturnTheEndToken
 
 B) FOR PostfixExpr:
+
+C) FOR StringExtension:
+		testIntIsDouble
+		testDoubleIsDouble
+		testMultiplePointsIsNotDouble
+		testStringIsNotDouble
+
+		testOperatorIsOperator
+		testOtherStringsIsNotOperator
