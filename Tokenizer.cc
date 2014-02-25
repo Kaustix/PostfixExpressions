@@ -5,7 +5,31 @@
 
 void Tokenizer::parse(const std::string str) {
 	crtIndex = 0;
-	strList.push_back(str);
+	std::string crtLiteral;
+
+	for(int i = 0; i < str.length(); i++) {
+		std::string crtChar(1, str[i]);
+    	if (StringExtension::isOperator(crtChar)) {
+    		if (!crtLiteral.empty()) {
+    			strList.push_back(crtLiteral);
+    			crtLiteral.clear();
+    		}
+    		strList.push_back(crtChar);	
+    	}
+    	else {
+    		if (crtChar != " ") {
+    			crtLiteral += crtChar;
+    		}
+    		else {
+    			if (!crtLiteral.empty()) {
+    				strList.push_back(crtLiteral);
+    				crtLiteral = "";
+    			}
+    		}
+    	}
+	}
+
+	if (!crtLiteral.empty()) strList.push_back(crtLiteral);
 }
 
 Tokenizer::Tokens Tokenizer::crtTokenType() {
