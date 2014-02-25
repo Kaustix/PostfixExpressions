@@ -21,6 +21,8 @@ A) FOR Tokenizer:
 		ShouldIncrementNextToken
 
 B) FOR PostfixExpr:
+		ShouldCorrectlyEvaluatePostFixExpression1
+		ShouldCorrectlyEvaluatePostFixExpression2
 
 C) FOR StringExtension:
 		testIntIsDouble
