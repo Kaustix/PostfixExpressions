@@ -17,6 +17,9 @@ public:
 		CPPUNIT_TEST(ShouldReturnOperatorToken);
 		CPPUNIT_TEST(ShouldReturnUnknownToken);
 		CPPUNIT_TEST(ShouldReturnTheEndToken);
+	//crtTokenValue
+		CPPUNIT_TEST(ShouldReturnLiteralValue);
+		CPPUNIT_TEST(ShouldReturnOperatorValue);
 	//nextToken
 		CPPUNIT_TEST(ShouldIncrementNextToken);
 	CPPUNIT_TEST_SUITE_END();
@@ -40,6 +43,7 @@ public:
 		delete t;
 	}
 
+	//Parsing
 	void ShouldParseString() {
 		t->parse(intLiteral);
 		CPPUNIT_ASSERT(t->strList[0] == "1");
@@ -50,6 +54,7 @@ public:
 		CPPUNIT_ASSERT(t->crtIndex == 0);
 	}
 
+	//crtTokenType
 	void ShouldReturnLiteralToken() {
 		t->parse(intLiteral);
 		CPPUNIT_ASSERT(t->crtTokenType() == Tokenizer::Tokens::LITERAL);
@@ -71,6 +76,18 @@ public:
 	 	CPPUNIT_ASSERT(t->crtTokenType() == Tokenizer::Tokens::THEEND);
 	}
 
+	//crtTokenValue
+	void ShouldReturnLiteralValue() {
+		t->parse(intLiteral);
+		CPPUNIT_ASSERT(t->crtTokenValue().literalVal == 1.0);
+	}
+
+	void ShouldReturnOperatorValue() {
+		t->parse(singleOperator);
+		CPPUNIT_ASSERT(t->crtTokenValue().opVal == Tokenizer::OperatorValue::PLUS);
+	}
+
+	//nextToken
 	void ShouldIncrementNextToken() {
 		t->parse(intLiteral);
 		t->nextToken();

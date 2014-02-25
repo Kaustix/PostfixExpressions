@@ -11,6 +11,10 @@ A) FOR Tokenizer:
 		ShouldReturnOperatorToken
 		ShouldReturnUnknownToken
 		ShouldReturnTheEndToken
+	//crtTokenValue
+		ShouldReturnLiteralValue
+		ShouldReturnOperaterValue
+		ShouldReturnUndefinedValueIfEndOfFile
 	//nextToken
 		ShouldIncrementNextToken
 
