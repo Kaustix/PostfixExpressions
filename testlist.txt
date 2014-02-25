@@ -28,7 +28,7 @@ B) FOR PostfixExpr:
 		ShouldEvaluateOperatorStar
 		ShouldEvaluateOperatorSlash
 
-		ShouldThrowErrorIfNullOrEmpty
+		ShouldThrowErrorIfEmpty
 		ShouldThrowErrorIfNoSpaceBetweenLitteralAndOperator
 		ShouldThrowErrorIfMalformedString
 

@@ -1,11 +1,11 @@
 #include "PostfixExpr.h"
 #include "Tokenizer.h"
+#include "exceptions.h"
 #include <stack>
 
-#include <iostream>
-
 double PostfixExpr::evaluate(std::string expr)
-{
+{	
+	if (expr.empty() || expr == "") throw SyntaxError("Expression can't be NULL or Empty");
 	Tokenizer exprTokenizer;
 	std::stack<double> tokenStack;
 

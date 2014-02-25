@@ -16,8 +16,6 @@ public:
 	CPPUNIT_TEST(ShouldEvaluateOperatorMinus);
 	CPPUNIT_TEST(ShouldEvaluateOperatorStar);
 	CPPUNIT_TEST(ShouldEvaluateOperatorSlash);
-
-	CPPUNIT_TEST_EXCEPTION(ShouldThrowErrorIfNull, SyntaxError);
 	CPPUNIT_TEST_EXCEPTION(ShouldThrowErrorIfEmpty, SyntaxError);
 	CPPUNIT_TEST_SUITE_END();
 private:
@@ -60,10 +58,6 @@ public:
 
 	void ShouldThrowErrorIfEmpty() {
 		p->evaluate("");
-	}
-
-	void ShouldThrowErrorIfNull() {
-		p->evaluate(NULL);
 	}
 };
 
