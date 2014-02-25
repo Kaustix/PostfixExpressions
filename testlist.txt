@@ -28,6 +28,10 @@ B) FOR PostfixExpr:
 		ShouldEvaluateOperatorStar
 		ShouldEvaluateOperatorSlash
 
+		ShouldThrowErrorIfNullOrEmpty
+		ShouldThrowErrorIfNoSpaceBetweenLitteralAndOperator
+		ShouldThrowErrorIfMalformedString
+
 C) FOR StringExtension:
 		testIntIsDouble
 		testDoubleIsDouble

@@ -16,6 +16,9 @@ public:
 	CPPUNIT_TEST(ShouldEvaluateOperatorMinus);
 	CPPUNIT_TEST(ShouldEvaluateOperatorStar);
 	CPPUNIT_TEST(ShouldEvaluateOperatorSlash);
+
+	CPPUNIT_TEST_EXCEPTION(ShouldThrowErrorIfNull, SyntaxError);
+	CPPUNIT_TEST_EXCEPTION(ShouldThrowErrorIfEmpty, SyntaxError);
 	CPPUNIT_TEST_SUITE_END();
 private:
 	PostfixExpr* p;
@@ -53,6 +56,14 @@ public:
 
 	void ShouldEvaluateOperatorSlash() {
 		CPPUNIT_ASSERT(p->evaluateOperator(Tokenizer::OperatorValue::SLASH, 50.0, 5.0) == 10.0);
+	}
+
+	void ShouldThrowErrorIfEmpty() {
+		p->evaluate("");
+	}
+
+	void ShouldThrowErrorIfNull() {
+		p->evaluate(NULL);
 	}
 };
 
