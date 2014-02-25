@@ -8,7 +8,9 @@ void Tokenizer::parse(const std::string str) {
 	std::string crtLiteral;
 
 	for(int i = 0; i < str.length(); i++) {
-		std::string crtChar(1, str[i]);
+		std::string crtChar(1, str[i]);	//convert char to string
+
+		//Check if char is an Operator
     	if (StringExtension::isOperator(crtChar)) {
     		if (!crtLiteral.empty()) {
     			strList.push_back(crtLiteral);
@@ -16,6 +18,8 @@ void Tokenizer::parse(const std::string str) {
     		}
     		strList.push_back(crtChar);	
     	}
+
+    	//Add literal to list or concat to crliteral
     	else {
     		if (crtChar != " ") {
     			crtLiteral += crtChar;
@@ -27,8 +31,10 @@ void Tokenizer::parse(const std::string str) {
     			}
     		}
     	}
+
 	}
 
+	//End of string push crtLiteral ifnot empty
 	if (!crtLiteral.empty()) strList.push_back(crtLiteral);
 }
 

@@ -13,6 +13,8 @@ public:
 		CPPUNIT_TEST(ShouldParseString);
 		CPPUNIT_TEST(ShouldInitializeParserToInitialToken);
 		CPPUNIT_TEST(ShouldParseMultipleLiterals);
+		CPPUNIT_TEST(ShouldParseMultipleOperators);
+		CPPUNIT_TEST(ShouldParsePostfixExpression);
 	//crtTokenType
 		CPPUNIT_TEST(ShouldReturnLiteralToken);
 		CPPUNIT_TEST(ShouldReturnOperatorToken);
@@ -58,6 +60,23 @@ public:
 		t->parse(multipleLiterals);
 		CPPUNIT_ASSERT(t->strList[0] == "42");
 		CPPUNIT_ASSERT(t->strList[1] == "18.7");
+	}
+
+	void ShouldParseMultipleOperators() {
+		t->parse(multipleOperators);
+		CPPUNIT_ASSERT(t->strList[0] == "+");
+		CPPUNIT_ASSERT(t->strList[1] == "-");
+		CPPUNIT_ASSERT(t->strList[2] == "*");
+		CPPUNIT_ASSERT(t->strList[3] == "/");
+	}
+
+	void ShouldParsePostfixExpression() {
+		t->parse(postfixExpression);
+		CPPUNIT_ASSERT(t->strList[0] == "2");
+		CPPUNIT_ASSERT(t->strList[1] == "4.5");
+		CPPUNIT_ASSERT(t->strList[2] == "1");
+		CPPUNIT_ASSERT(t->strList[3] == "+");
+		CPPUNIT_ASSERT(t->strList[4] == "-");
 	}
 
 	//crtTokenType
