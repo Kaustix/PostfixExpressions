@@ -23,6 +23,10 @@ A) FOR Tokenizer:
 B) FOR PostfixExpr:
 		ShouldCorrectlyEvaluatePostFixExpression1
 		ShouldCorrectlyEvaluatePostFixExpression2
+		ShouldEvaluateOperatorPlus
+		ShouldEvaluateOperatorMinus
+		ShouldEvaluateOperatorStar
+		ShouldEvaluateOperatorSlash
 
 C) FOR StringExtension:
 		testIntIsDouble
