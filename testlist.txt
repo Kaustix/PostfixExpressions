@@ -6,6 +6,9 @@ A) FOR Tokenizer:
   	//Parsing
 		ShouldParseString
 		ShouldInitializeParserToInitialToken
+		ShouldParseMultipleLiterals
+		ShouldParseMultipleOperators
+		ShouldParsePostfixExpression
 	//crtTokenType
 		ShouldReturnLiteralToken
 		ShouldReturnOperatorToken
@@ -14,7 +17,6 @@ A) FOR Tokenizer:
 	//crtTokenValue
 		ShouldReturnLiteralValue
 		ShouldReturnOperaterValue
-		ShouldReturnUndefinedValueIfEndOfFile
 	//nextToken
 		ShouldIncrementNextToken
 

@@ -12,6 +12,7 @@ public:
 	//Parsing
 		CPPUNIT_TEST(ShouldParseString);
 		CPPUNIT_TEST(ShouldInitializeParserToInitialToken);
+		CPPUNIT_TEST(ShouldParseMultipleLiterals);
 	//crtTokenType
 		CPPUNIT_TEST(ShouldReturnLiteralToken);
 		CPPUNIT_TEST(ShouldReturnOperatorToken);
@@ -30,10 +31,9 @@ private:
 	const std::string doubleLiteral = "12.3";
 	const std::string multipleLiterals = "42 18.7";
 	const std::string singleOperator = "+";
-	const std::string multipleOperators = "+ - * /";
+	const std::string multipleOperators = "+-*/";
 	const std::string unknownChar = "^";
-	const std::string spaces = "  10   +   2  ";
-
+	const std::string postfixExpression = "2 4.5 1 +-";
 public:
 	void setUp(){
 		t = new Tokenizer;
@@ -52,6 +52,12 @@ public:
 	void ShouldInitializeParserToInitialToken() {
 		t->parse(intLiteral);
 		CPPUNIT_ASSERT(t->crtIndex == 0);
+	}
+
+	void ShouldParseMultipleLiterals() {
+		t->parse(multipleLiterals);
+		CPPUNIT_ASSERT(t->strList[0] == "42");
+		CPPUNIT_ASSERT(t->strList[1] == "18.7");
 	}
 
 	//crtTokenType
