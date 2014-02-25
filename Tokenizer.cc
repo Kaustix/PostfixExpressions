@@ -55,6 +55,7 @@ Tokenizer::Tokens Tokenizer::crtTokenType() {
 }
 
 Tokenizer::TokenValue Tokenizer::crtTokenValue() {
+	//TODO **** FIX THE CONSTRUCTORS!!!
 	if (crtIndex < strList.size()) {
 		Tokenizer::TokenValue tValue;
 		switch (crtTokenType()) {

@@ -23,6 +23,8 @@ class PostfixExpr {
       \throws LexicalError if the expression contains illegal characters.
    */
   double evaluate(std::string expr);
+private:
+  double evaluateOperator(const Tokenizer::OperatorValue op, const double& lhs, const double& rhs);
 };
 
 
