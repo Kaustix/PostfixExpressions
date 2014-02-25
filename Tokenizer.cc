@@ -55,19 +55,15 @@ Tokenizer::Tokens Tokenizer::crtTokenType() {
 }
 
 Tokenizer::TokenValue Tokenizer::crtTokenValue() {
-	//TODO **** FIX THE CONSTRUCTORS!!!
 	if (crtIndex < strList.size()) {
-		Tokenizer::TokenValue tValue;
 		switch (crtTokenType()) {
 			case Tokens::LITERAL:
-				tValue.literalVal = atof(strList[crtIndex].c_str());
-				return tValue;
+				return(TokenValue(atof(strList[crtIndex].c_str())));
 			case Tokens::OPERATOR:
-				if (strList[crtIndex] == "+") tValue.opVal = OperatorValue::PLUS;
-				if (strList[crtIndex] == "-") tValue.opVal = OperatorValue::MINUS;
-				if (strList[crtIndex] == "*") tValue.opVal = OperatorValue::STAR;
-				if (strList[crtIndex] == "/") tValue.opVal = OperatorValue::SLASH;
-				return tValue;
+				if (strList[crtIndex] == "+") return TokenValue(OperatorValue::PLUS);
+				if (strList[crtIndex] == "-") return TokenValue(OperatorValue::MINUS);
+				if (strList[crtIndex] == "*") return TokenValue(OperatorValue::STAR);
+				if (strList[crtIndex] == "/") return TokenValue(OperatorValue::SLASH);
 		}
 	}
 }

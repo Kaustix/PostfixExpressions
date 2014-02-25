@@ -11,7 +11,7 @@ all: expr tests
 
 expr: $(COMMONOBJS) $(MAINOBJS)
 	${CC} -o $@ $^ -L$(LIBDIR)
-
+ 
 tests: $(COMMONOBJS) $(TESTOBJS)
 	${CC} -o $@ $^ -L$(LIBDIR) $(TESTFLAGS)
 
