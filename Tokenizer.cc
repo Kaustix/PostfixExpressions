@@ -25,7 +25,20 @@ Tokenizer::Tokens Tokenizer::crtTokenType() {
 }
 
 Tokenizer::TokenValue Tokenizer::crtTokenValue() {
-	return OperatorValue::STAR;
+	if (crtIndex < strList.size()) {
+		Tokenizer::TokenValue tValue;
+		switch (crtTokenType()) {
+			case Tokens::LITERAL:
+				tValue.literalVal = atof(strList[crtIndex].c_str());
+				return tValue;
+			case Tokens::OPERATOR:
+				if (strList[crtIndex] == "+") tValue.opVal = OperatorValue::PLUS;
+				if (strList[crtIndex] == "-") tValue.opVal = OperatorValue::MINUS;
+				if (strList[crtIndex] == "*") tValue.opVal = OperatorValue::STAR;
+				if (strList[crtIndex] == "/") tValue.opVal = OperatorValue::SLASH;
+				return tValue;
+		}
+	}
 }
 
 void Tokenizer::nextToken() {
