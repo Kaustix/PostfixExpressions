@@ -17,6 +17,7 @@ public:
 	CPPUNIT_TEST(ShouldEvaluateOperatorStar);
 	CPPUNIT_TEST(ShouldEvaluateOperatorSlash);
 	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfEmpty, SyntaxError);
+	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfSingleLiteralAtFront, SyntaxError);
 	CPPUNIT_TEST_SUITE_END();
 private:
 	PostfixExpr* p;
@@ -58,6 +59,10 @@ public:
 
 	void ShouldThrowSyntaxErrorIfEmpty() {
 		p->evaluate("");
+	}
+
+	void ShouldThrowSyntaxErrorIfSingleLiteralAtFront() {
+		p->evaluate("10 +");
 	}
 
 };
