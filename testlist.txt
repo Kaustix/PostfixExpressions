@@ -9,11 +9,13 @@ A) FOR Tokenizer:
 		ShouldParseMultipleLiterals
 		ShouldParseMultipleOperators
 		ShouldParsePostfixExpression
+		
 	//crtTokenType
 		ShouldReturnLiteralToken
 		ShouldReturnOperatorToken
 		ShouldReturnUnknownToken
 		ShouldReturnTheEndToken
+		ShouldThrowLexicalErrorIfInvalidCharacter
 	//crtTokenValue
 		ShouldReturnLiteralValue
 		ShouldReturnOperaterValue
@@ -28,9 +30,13 @@ B) FOR PostfixExpr:
 		ShouldEvaluateOperatorStar
 		ShouldEvaluateOperatorSlash
 
-		ShouldThrowErrorIfEmpty
-		ShouldThrowErrorIfNoSpaceBetweenLitteralAndOperator
-		ShouldThrowErrorIfMalformedString
+		ShouldThrowSyntaxErrorIfEmpty
+		ShouldThrowSyntaxErrorIfNoSpaceBetweenLiteralAndOperator
+		ShouldThrowSyntaxErrorIfSingleLiteralAtFront
+		ShouldThrowSyntaxErrorIfNoOperatorPresent
+		ShouldThrowSyntaxErrorIfNoLiteralPresent
+		ShouldThrowSyntaxErrorIfExtraOperatorPresent
+		ShouldThrowSyntaxErrorIfExtraLiteralPresent
 
 C) FOR StringExtension:
 		testIntIsDouble

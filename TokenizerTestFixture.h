@@ -10,21 +10,22 @@ class TokenizerTestFixture : public CppUnit::TestFixture
 public:
 	CPPUNIT_TEST_SUITE(TokenizerTestFixture);
 	//Parsing
-		CPPUNIT_TEST(ShouldParseString);
-		CPPUNIT_TEST(ShouldInitializeParserToInitialToken);
-		CPPUNIT_TEST(ShouldParseMultipleLiterals);
-		CPPUNIT_TEST(ShouldParseMultipleOperators);
-		CPPUNIT_TEST(ShouldParsePostfixExpression);
+	CPPUNIT_TEST(ShouldParseString);
+	CPPUNIT_TEST(ShouldInitializeParserToInitialToken);
+	CPPUNIT_TEST(ShouldParseMultipleLiterals);
+	CPPUNIT_TEST(ShouldParseMultipleOperators);
+	CPPUNIT_TEST(ShouldParsePostfixExpression);
 	//crtTokenType
-		CPPUNIT_TEST(ShouldReturnLiteralToken);
-		CPPUNIT_TEST(ShouldReturnOperatorToken);
-		CPPUNIT_TEST(ShouldReturnUnknownToken);
-		CPPUNIT_TEST(ShouldReturnTheEndToken);
+	CPPUNIT_TEST(ShouldReturnLiteralToken);
+	CPPUNIT_TEST(ShouldReturnOperatorToken);
+	CPPUNIT_TEST(ShouldReturnUnknownToken);
+	CPPUNIT_TEST(ShouldReturnTheEndToken);
 	//crtTokenValue
-		CPPUNIT_TEST(ShouldReturnLiteralValue);
-		CPPUNIT_TEST(ShouldReturnOperatorValue);
+	CPPUNIT_TEST(ShouldReturnLiteralValue);
+	CPPUNIT_TEST(ShouldReturnOperatorValue);
 	//nextToken
-		CPPUNIT_TEST(ShouldIncrementNextToken);
+	CPPUNIT_TEST(ShouldIncrementNextToken);
+
 	CPPUNIT_TEST_SUITE_END();
 
 private:

@@ -16,7 +16,8 @@ public:
 	CPPUNIT_TEST(ShouldEvaluateOperatorMinus);
 	CPPUNIT_TEST(ShouldEvaluateOperatorStar);
 	CPPUNIT_TEST(ShouldEvaluateOperatorSlash);
-	CPPUNIT_TEST_EXCEPTION(ShouldThrowErrorIfEmpty, SyntaxError);
+	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfEmpty, SyntaxError);
+	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfNoSpaceBetweenLiteralAndOperator, SyntaxError);
 	CPPUNIT_TEST_SUITE_END();
 private:
 	PostfixExpr* p;
@@ -56,8 +57,12 @@ public:
 		CPPUNIT_ASSERT(p->evaluateOperator(Tokenizer::OperatorValue::SLASH, 50.0, 5.0) == 10.0);
 	}
 
-	void ShouldThrowErrorIfEmpty() {
+	void ShouldThrowSyntaxErrorIfEmpty() {
 		p->evaluate("");
+	}
+
+	void ShouldThrowSyntaxErrorIfNoSpaceBetweenLiteralAndOperator() {
+		p->evaluate("10 2 3+-");
 	}
 };
 
