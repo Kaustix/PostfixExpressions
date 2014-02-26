@@ -9,7 +9,8 @@ A) FOR Tokenizer:
 		ShouldParseMultipleLiterals
 		ShouldParseMultipleOperators
 		ShouldParsePostfixExpression
-		
+		ShouldParseOperandsThatHaveNoSpacesToLiterals
+
 	//crtTokenType
 		ShouldReturnLiteralToken
 		ShouldReturnOperatorToken
@@ -31,7 +32,6 @@ B) FOR PostfixExpr:
 		ShouldEvaluateOperatorSlash
 
 		ShouldThrowSyntaxErrorIfEmpty
-		ShouldThrowSyntaxErrorIfNoSpaceBetweenLiteralAndOperator
 		ShouldThrowSyntaxErrorIfSingleLiteralAtFront
 		ShouldThrowSyntaxErrorIfNoOperatorPresent
 		ShouldThrowSyntaxErrorIfNoLiteralPresent

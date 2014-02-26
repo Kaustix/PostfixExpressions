@@ -15,6 +15,7 @@ public:
 	CPPUNIT_TEST(ShouldParseMultipleLiterals);
 	CPPUNIT_TEST(ShouldParseMultipleOperators);
 	CPPUNIT_TEST(ShouldParsePostfixExpression);
+	CPPUNIT_TEST(ShouldParseOperandsThatHaveNoSpacesToLiterals);
 	//crtTokenType
 	CPPUNIT_TEST(ShouldReturnLiteralToken);
 	CPPUNIT_TEST(ShouldReturnOperatorToken);
@@ -78,6 +79,12 @@ public:
 		CPPUNIT_ASSERT(t->strList[2] == "1");
 		CPPUNIT_ASSERT(t->strList[3] == "+");
 		CPPUNIT_ASSERT(t->strList[4] == "-");
+	}
+
+	void ShouldParseOperandsThatHaveNoSpacesToLiterals() {
+		t->parse("10 2 3+-");
+		CPPUNIT_ASSERT(t->strList[2] == "3");
+		CPPUNIT_ASSERT(t->strList[3] == "+");
 	}
 
 	//crtTokenType

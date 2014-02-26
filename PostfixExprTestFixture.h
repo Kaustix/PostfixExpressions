@@ -17,7 +17,6 @@ public:
 	CPPUNIT_TEST(ShouldEvaluateOperatorStar);
 	CPPUNIT_TEST(ShouldEvaluateOperatorSlash);
 	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfEmpty, SyntaxError);
-	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfNoSpaceBetweenLiteralAndOperator, SyntaxError);
 	CPPUNIT_TEST_SUITE_END();
 private:
 	PostfixExpr* p;
@@ -61,9 +60,6 @@ public:
 		p->evaluate("");
 	}
 
-	void ShouldThrowSyntaxErrorIfNoSpaceBetweenLiteralAndOperator() {
-		p->evaluate("10 2 3+-");
-	}
 };
 
 #endif
