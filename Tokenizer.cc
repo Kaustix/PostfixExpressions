@@ -50,7 +50,7 @@ Tokenizer::Tokens Tokenizer::crtTokenType() {
 		return Tokens::OPERATOR;
 	}
 
-	throw LexicalError("Unknown Token Type: " + strList[crtIndex]);
+	throw LexicalError("Lexical Error: '" + strList[crtIndex] + "' is an unknown token type" );
 }
 
 Tokenizer::TokenValue Tokenizer::crtTokenValue() {
