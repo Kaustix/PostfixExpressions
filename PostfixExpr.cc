@@ -5,7 +5,7 @@
 
 double PostfixExpr::evaluate(std::string expr)
 {	
-	if (expr.empty() || expr == "") throw SyntaxError("Expression can't be NULL or Empty");
+	if (expr.empty() || expr == "") throw SyntaxError("Syntax Error: Expression can't be NULL or Empty");
 	Tokenizer exprTokenizer;
 	std::stack<double> tokenStack;
 
@@ -24,6 +24,7 @@ double PostfixExpr::evaluate(std::string expr)
 
 		//Pop off Stack if Operator - Push new awnser to stack
 		if (crtToken == Tokenizer::Tokens::OPERATOR) {
+			if (tokenStack.size() < 2) throw SyntaxError("SyntaxError: Operand function requires two literals");
 			double rhs = tokenStack.top(); tokenStack.pop();
 			double lhs = tokenStack.top(); tokenStack.pop();
 
