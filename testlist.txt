@@ -9,8 +9,8 @@ A) FOR Tokenizer:
 		ShouldParseMultipleLiterals
 		ShouldParseMultipleOperators
 		ShouldParsePostfixExpression
+		ShouldParsePostfixExpressionsWithExtraSpaces
 		ShouldParseOperandsThatHaveNoSpacesToLiterals
-
 	//crtTokenType
 		ShouldReturnLiteralToken
 		ShouldReturnOperatorToken

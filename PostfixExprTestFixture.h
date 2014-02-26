@@ -20,6 +20,8 @@ public:
 	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfSingleLiteralAtFront, SyntaxError);
 	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfNoOperatorPresent, SyntaxError);
 	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfNoLiteralPresent, SyntaxError);
+	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfExtraOperatorPresent, SyntaxError);
+	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfExtraLiteralPresent, SyntaxError);
 	CPPUNIT_TEST_SUITE_END();
 private:
 	PostfixExpr* p;
@@ -75,6 +77,14 @@ public:
 		p->evaluate("10 2 6");
 	}
 
+	void ShouldThrowSyntaxErrorIfExtraLiteralPresent() {
+		p->evaluate("34 8 1 +");
+	}
+
+	void ShouldThrowSyntaxErrorIfExtraOperatorPresent() {
+		p->evaluate("3 22 +-/");
+	}
+	
 };
 
 #endif
