@@ -24,7 +24,7 @@ double PostfixExpr::evaluate(std::string expr)
 
 		//Pop off Stack if Operator - Push new awnser to stack
 		if (crtToken == Tokenizer::Tokens::OPERATOR) {
-			if (tokenStack.size() < 2) throw SyntaxError("SyntaxError: Operand function requires two literals");
+			if (tokenStack.size() < 2) throw SyntaxError("SyntaxError: Missing a literal");
 			double rhs = tokenStack.top(); tokenStack.pop();
 			double lhs = tokenStack.top(); tokenStack.pop();
 
@@ -36,6 +36,7 @@ double PostfixExpr::evaluate(std::string expr)
 		crtToken = exprTokenizer.crtTokenType();
 	}
 
+	if (tokenStack.size() > 1) throw SyntaxError("SyntaxError: Missing an operand");
 	return tokenStack.top();
 }
 
