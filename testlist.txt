@@ -26,6 +26,7 @@ A) FOR Tokenizer:
 B) FOR PostfixExpr:
 		ShouldCorrectlyEvaluatePostFixExpression1
 		ShouldCorrectlyEvaluatePostFixExpression2
+		CPPUNIT_TEST(ShouldCorrectlyEvaluatePostFixExpressionNegativeNumbers);
 		ShouldEvaluateOperatorPlus
 		ShouldEvaluateOperatorMinus
 		ShouldEvaluateOperatorStar

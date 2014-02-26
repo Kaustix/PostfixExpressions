@@ -12,6 +12,7 @@ public:
 	CPPUNIT_TEST_SUITE(PostfixExprTestFixture);
 	CPPUNIT_TEST(ShouldCorrectlyEvaluatePostFixExpression1);
 	CPPUNIT_TEST(ShouldCorrectlyEvaluatePostFixExpression2);
+	CPPUNIT_TEST(ShouldCorrectlyEvaluatePostFixExpressionNegativeNumbers);
 	CPPUNIT_TEST(ShouldEvaluateOperatorPlus);
 	CPPUNIT_TEST(ShouldEvaluateOperatorMinus);
 	CPPUNIT_TEST(ShouldEvaluateOperatorStar);
@@ -27,6 +28,7 @@ private:
 	PostfixExpr* p;
 	const std::string expr1 = "10 2 4 +*";
 	const std::string expr2 = "10 2 - 7 + 3 /";
+	const std::string expr3 = "0 1 -";
 
 public:
 	void setUp(){
@@ -43,6 +45,10 @@ public:
 
 	void ShouldCorrectlyEvaluatePostFixExpression2() {
 		CPPUNIT_ASSERT(p->evaluate(expr2) == 5);
+	}
+
+	void ShouldCorrectlyEvaluatePostFixExpressionNegativeNumbers() {
+		CPPUNIT_ASSERT(p->evaluate(expr3) == -1);
 	}
 
 	void ShouldEvaluateOperatorPlus() {
@@ -84,7 +90,7 @@ public:
 	void ShouldThrowSyntaxErrorIfExtraOperatorPresent() {
 		p->evaluate("3 22 +-/");
 	}
-	
+
 };
 
 #endif
