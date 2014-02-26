@@ -18,6 +18,8 @@ public:
 	CPPUNIT_TEST(ShouldEvaluateOperatorSlash);
 	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfEmpty, SyntaxError);
 	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfSingleLiteralAtFront, SyntaxError);
+	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfNoOperatorPresent, SyntaxError);
+	CPPUNIT_TEST_EXCEPTION(ShouldThrowSyntaxErrorIfNoLiteralPresent, SyntaxError);
 	CPPUNIT_TEST_SUITE_END();
 private:
 	PostfixExpr* p;
@@ -63,6 +65,14 @@ public:
 
 	void ShouldThrowSyntaxErrorIfSingleLiteralAtFront() {
 		p->evaluate("10 +");
+	}
+
+	void ShouldThrowSyntaxErrorIfNoLiteralPresent() {
+		p->evaluate("+- /");
+	}	
+
+	void ShouldThrowSyntaxErrorIfNoOperatorPresent() {
+		p->evaluate("10 2 6");
 	}
 
 };
