@@ -21,7 +21,6 @@ public:
 	//crtTokenType
 	CPPUNIT_TEST(ShouldReturnLiteralToken);
 	CPPUNIT_TEST(ShouldReturnOperatorToken);
-	CPPUNIT_TEST(ShouldReturnUnknownToken);
 	CPPUNIT_TEST(ShouldReturnTheEndToken);
 	CPPUNIT_TEST_EXCEPTION(ShouldThrowLexicalErrorIfInvalidCharacter, LexicalError);
 	//crtTokenValue
@@ -88,7 +87,7 @@ public:
 		t->parse("10             3              +");
 		CPPUNIT_ASSERT(t->strList[0] == "10");
 		CPPUNIT_ASSERT(t->strList[1] == "3");
-		CPPUNIT_ASSERT(t->strList[3] == "+");
+		CPPUNIT_ASSERT(t->strList[2] == "+");
 	}
 
 	void ShouldParseOperandsThatHaveNoSpacesToLiterals() {
@@ -106,11 +105,6 @@ public:
 	void ShouldReturnOperatorToken() {
 		t->parse(singleOperator);
 		CPPUNIT_ASSERT(t->crtTokenType() == Tokenizer::Tokens::OPERATOR);
-	}
-
-	void ShouldReturnUnknownToken() {
-		t->parse(unknownChar);
-		CPPUNIT_ASSERT(t->crtTokenType() == Tokenizer::Tokens::UNKNOWN);
 	}
 
 	void ShouldReturnTheEndToken() {

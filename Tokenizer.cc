@@ -1,7 +1,6 @@
 #include "Tokenizer.h"
 #include "StringExtension.h"
-
-#include <iostream>
+#include "exceptions.h"
 
 void Tokenizer::parse(const std::string str) {
 	crtIndex = 0;
@@ -51,7 +50,7 @@ Tokenizer::Tokens Tokenizer::crtTokenType() {
 		return Tokens::OPERATOR;
 	}
 
-	return Tokens::UNKNOWN;
+	throw LexicalError("Unknown Token Type: " + strList[crtIndex]);
 }
 
 Tokenizer::TokenValue Tokenizer::crtTokenValue() {
