@@ -4,6 +4,7 @@
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 #include "Tokenizer.h"
+#include "exceptions.h"
 
 class TokenizerTestFixture : public CppUnit::TestFixture 
 {
@@ -22,6 +23,7 @@ public:
 	CPPUNIT_TEST(ShouldReturnOperatorToken);
 	CPPUNIT_TEST(ShouldReturnUnknownToken);
 	CPPUNIT_TEST(ShouldReturnTheEndToken);
+	CPPUNIT_TEST_EXCEPTION(ShouldThrowLexicalErrorIfInvalidCharacter, LexicalError);
 	//crtTokenValue
 	CPPUNIT_TEST(ShouldReturnLiteralValue);
 	CPPUNIT_TEST(ShouldReturnOperatorValue);
@@ -86,7 +88,7 @@ public:
 		t->parse("10             3              +");
 		CPPUNIT_ASSERT(t->strList[0] == "10");
 		CPPUNIT_ASSERT(t->strList[1] == "3");
-		CPPUNIT_ASSERT(t->strList[3] == "+")
+		CPPUNIT_ASSERT(t->strList[3] == "+");
 	}
 
 	void ShouldParseOperandsThatHaveNoSpacesToLiterals() {
@@ -115,6 +117,11 @@ public:
 	 	t->parse(intLiteral);
 	 	t->crtIndex++;
 	 	CPPUNIT_ASSERT(t->crtTokenType() == Tokenizer::Tokens::THEEND);
+	}
+
+	void ShouldThrowLexicalErrorIfInvalidCharacter() {
+		t->parse(unknownChar);
+		t->crtTokenType();
 	}
 
 	//crtTokenValue
